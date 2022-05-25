@@ -4,7 +4,7 @@ from decimal import Decimal
 import logging
 from tables.position import Position
 from tables.trade import Trade
-from utils import *
+from utils.utils import *
 
 """
 All the logic related specifically to portfolios goes here

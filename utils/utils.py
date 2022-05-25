@@ -11,7 +11,6 @@ def calculate_gain_loss(coin, values):
     values_df = pandas.DataFrame(values).round(2)
     values_df_pct = values_df.pct_change().values[-1][0]
     logging.info(f"{coin} GAIN/LOSS: {round(100 * values_df_pct, 2)} %")
-    return
 
 def calculate_moving_avg(coin_id):
     price_history = crypto_api.get_coin_price_history(coin_id)

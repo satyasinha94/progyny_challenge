@@ -3,7 +3,7 @@ import schedule
 import time
 import threading
 from db_base.db_base import Base, engine, DBSession
-from portfolio import should_we_build_portfolio, should_we_buy, log_total_portfolio_gain_loss
+from portfolio.portfolio import should_we_build_portfolio, should_we_buy, log_total_portfolio_gain_loss
 
 """
 Setting up basic logging to app.log file located in storage/logs/
