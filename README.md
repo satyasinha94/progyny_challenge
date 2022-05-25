@@ -44,10 +44,9 @@ You will need the following installed on your local machine:
 
 Steps to get up and running
 
-1. Copy the `.env.example` file to `.env`
-2. Run `make init` to spin up the docker container. Note you will automatically be "ssh'ed" into the main docker container from which you can run your python code.
-3. Run `python app.py` to start the application. As per the instructions above, it should run once per hour after building a portfolio and potentially making an additional purchase based on the current price and 10 day moving average. 
-4. Subsequent runs can be done via `make up` instead of `make init`
+1. Run `make init` to spin up the docker container. Note you will automatically be "ssh'ed" into the main docker container from which you can run your python code.
+2. Run `python app.py` to start the application. As per the instructions above, it should run once per hour after building a portfolio and potentially making an additional purchase based on the current price and 10 day moving average. 
+3. Subsequent runs can be done via `make up` instead of `make init`
 
 ### Database Access
 
