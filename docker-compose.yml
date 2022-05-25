@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: interview-assessment
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    tty: true
+    privileged: true
+
+  db:
+    image: postgres:latest
+    container_name: db
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: crypto
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    restart: unless-stopped
+    tty: true
+
