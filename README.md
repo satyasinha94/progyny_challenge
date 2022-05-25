@@ -36,7 +36,7 @@ Be prepared to present your solutions and cover the following items:
 - If you experience any downtime issues with the API, please contact us and we can review it & provide some additional time.
 
 
-## Local Development
+## How to run this app
 
 You will need the following installed on your local machine:
 
@@ -46,13 +46,24 @@ Steps to get up and running
 
 1. Copy the `.env.example` file to `.env`
 2. Run `make init` to spin up the docker container. Note you will automatically be "ssh'ed" into the main docker container from which you can run your python code.
+3. Run `python app.py` to start the application. As per the instructions above, it should run once per hour after building a portfolio and potentially making an additional purchase based on the current price and 10 day moving average. 
 
 ### Database Access
 
 If you would like to access the database via a GUI such as Sequel Pro or Tableplus, you can use the following credentials:
 
-Host: `127.0.0.1`
+Host: `localhost`
 User: `docker`
 Password: `secret`
 Database: `crypto`
-Port: `33060`
+Port: `5432`
+
+You can also connect via the terminal using PSQL: `psql -h localhost -p 5432 --username=docker -d crypto`
+
+### Data Models
+
+![Data Models](https://user-images.githubusercontent.com/41492803/170226510-b51dd054-a024-47ed-88ad-210cd558048a.png)
+
+### Roadmap
+
+A user model could also be added to this app in order to allow multiple users to have different portfolios. This would require a new table called users, and relationships between the existing tables as well. The Positions and Trades tables would need a user_id as a foreign key in order to distinguish between different users. 
