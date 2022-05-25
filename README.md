@@ -47,6 +47,7 @@ Steps to get up and running
 1. Copy the `.env.example` file to `.env`
 2. Run `make init` to spin up the docker container. Note you will automatically be "ssh'ed" into the main docker container from which you can run your python code.
 3. Run `python app.py` to start the application. As per the instructions above, it should run once per hour after building a portfolio and potentially making an additional purchase based on the current price and 10 day moving average. 
+4. Subsequent runs can be done via `make up` instead of `make init`
 
 ### Database Access
 
@@ -66,4 +67,8 @@ You can also connect via the terminal using PSQL: `psql -h localhost -p 5432 --u
 
 ### Roadmap
 
-A user model could also be added to this app in order to allow multiple users to have different portfolios. This would require a new table called users, and relationships between the existing tables as well. The Positions and Trades tables would need a user_id as a foreign key in order to distinguish between different users. 
+A user model could be added to this app in order to allow multiple users to have different portfolios. This would require a new table called users, and relationships between the existing tables as well. The Positions and Trades tables would need a user_id as a foreign key in order to distinguish between different users. 
+
+We could also add some makefile commands or a script to refresh the DB and start from scratch. Curretly this can be done via using psql, but makefile commands/a script would be more convenient.
+
+Finally we could also add tests for all of the utils and portfolio logic.
