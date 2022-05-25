@@ -41,6 +41,7 @@ Be prepared to present your solutions and cover the following items:
 You will need the following installed on your local machine:
 
 - Docker
+- You can also optionally install psql if you'd like to interact with the database.
 
 Steps to get up and running
 
