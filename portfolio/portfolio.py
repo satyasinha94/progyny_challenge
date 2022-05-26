@@ -70,7 +70,7 @@ def make_trade(coin_id, quantity, db_session, curr_price, sell=False):
         old_and_new_value = [position.cost_basis, new_value]
         logging.info(f"SOLD {quantity} {coin_id} AT {decimal_curr_price}")
         logging.info(f"CURRENT {coin_id} QUANTITY: {position.quantity}")
-        logging.info(f"CURRENT USD VALUE OF {coin_id} HOLDINGS: {new_value}")
+        logging.info(f"CURRENT USD VALUE OF {coin_id} HOLDINGS: {position.quantity * decimal_curr_price}")
     else:
         new_value = position.quantity * decimal_curr_price
         old_and_new_value = [position.cost_basis, new_value]
@@ -79,7 +79,7 @@ def make_trade(coin_id, quantity, db_session, curr_price, sell=False):
         position = query.first()
         logging.info(f"PURCHASED {quantity} {coin_id} AT {decimal_curr_price}")
         logging.info(f"CURRENT {coin_id} QUANTITY: {position.quantity}")
-        logging.info(f"CURRENT USD VALUE OF {coin_id} HOLDINGS: {new_value}")
+        logging.info(f"CURRENT USD VALUE OF {coin_id} HOLDINGS: {position.quantity * decimal_curr_price}")
     db_session.close()
     if position.quantity > 0:
         calculate_gain_loss(coin_id, old_and_new_value)
